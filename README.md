@@ -19,6 +19,9 @@ In this code lets search for the "main".
 
 if we subtract 101b0-10184 it is 11 so there are 11 instructions in this above assembly code in the "main".
 
+![WhatsApp Image 2024-05-28 at 7 19 55 PM (1)](https://github.com/nandhini-palanimuthu/VSDSquadron-Mini-Internship/assets/170846569/94dcff63-b256-46ce-a2fd-562e2285769b)
+
+
 
 TASK 2
 
