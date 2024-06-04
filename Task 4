@@ -30,6 +30,10 @@ Components:
    - GPIO (General Purpose Input/Output): For connecting LEDs, buttons, and other peripherals.
    - LEDs and Buttons: For user interaction and status indication.
 
+Circuit Connections:
+
+
+
 Pin Connections:
 
 #### Power Supply
