@@ -1,4 +1,4 @@
-                                                                 RISC PROCESSOR WITH UART INTERFACING
+                                                          RISC PROCESSOR WITH UART INTERFACING
 
 
 Overview:
