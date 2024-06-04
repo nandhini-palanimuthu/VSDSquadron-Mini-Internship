@@ -99,7 +99,10 @@ Circuit Explanation:
 Specific Functions:
 
 *Instruction Execution:The RISC processor fetches, decodes, and executes instructions, using its ALU for computations and registers for temporary storage.
+
 *UART Communication:The UART interface handles serial data transmission and reception, allowing the processor to communicate with external devices.
+
 *LED Control:The processor can turn LEDs on or off by setting the corresponding GPIO pins HIGH or LOW.
+
 *Button Input: The processor reads the state of the buttons via GPIO pins, which can be used to trigger specific actions.
 
