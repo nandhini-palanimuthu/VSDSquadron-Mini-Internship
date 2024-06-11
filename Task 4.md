@@ -116,7 +116,6 @@ void setup() {
     USART_Init(USART1, &USART_InitStructure);
     USART_Cmd(USART1, ENABLE);
 }
-
 void USART_SendString(char* str) {
     while (*str) {
         while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);
@@ -221,7 +220,6 @@ void loop() {
             break;
     }
 }
-
 int main(void) {
     setup();
     while (1) {
