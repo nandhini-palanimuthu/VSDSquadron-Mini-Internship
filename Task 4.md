@@ -1,16 +1,9 @@
-                                                          RISC PROCESSOR WITH UART INTERFACING
+                                                        PUSH BUTTON PRESS - LED PATTERNS USING VSD SQUADRON MINI RISC-V
 
 
 Overview:
 
-A simple RISC processor with a UART interface is ideal for embedded systems and educational projects.
-The RISC architecture, known for its reduced instruction set, offers simplicity and efficiency, making it suitable for low-power and high-performance applications.
-The UART interface facilitates serial communication, enabling data exchange between the processor and other devices, such as sensors or computers.
-The key components used are RISC Processor Core: Includes ALU, registers, instruction fetch and decode units, and memory interface and UART Interface: Comprises TX and RX lines, baud rate generator, and buffers for serial communication.
-Mainly used in applications like,
-Embedded Systems: Microcontrollers and IoT devices for home automation, sensors, and robotics.
-Education: Learning platforms and prototyping.
-Industrial: Real-time control systems and data acquisition.
+The "Push Button LED Patterns" project uses a VSD Squadron Mini board to control three LEDs based on push button inputs, creating different lighting patterns with each press. The system increments a counter with each button press, cycling through various predefined LED sequences connected to pins PD0, PD1, and PD2. Starting with all LEDs off, the patterns range from simple blinking to more complex sequences, providing visual feedback. Once the counter reaches a certain number (e.g., 5), it resets, starting the cycle anew. This project serves as an  introduction to microcontroller programming, digital input reading, and output control, offering hands-on experience in electronics and coding.
 
 
 Components:
@@ -20,89 +13,56 @@ Components:
    - Features multiple I/O options, including digital I/O pins, analog inputs, PWM outputs, and communication interfaces like USART, I2C, and SPI.
    - Includes an onboard programmer/debugger and supports open-source tools.
 
-2. UART Interface:
-   - TX (Transmit) Line: Sends serial data.
-   - RX (Receive) Line: Receives serial data.
-   - Baud Rate Generator: Controls the timing for data transmission and reception.
-   - Buffers: Temporary storage for data being transmitted and received.
+2. Push Button:
+   - A momentary push button is connected to the board to act as the input device.
+   - It's used to increment the LED patterns.
+     
+3. LEDs (Light Emitting Diodes):
+   - Three LEDs are connected to the board to visually represent different patterns.
+   - They serve as the output indicators.
+     
+     
+Circuit Connections & Explanation:
 
-3. Peripheral Interfaces:
-   - GPIO (General Purpose Input/Output): For connecting LEDs, buttons, and other peripherals.
-   - LEDs and Buttons: For user interaction and status indication.
+1. Push Button:
+
+Pin Connection: One terminal of the push button is connected to a digital input pin on the VSD Squadron Mini board (e.g., pin 8).
+
+2. Pull-up Resistor: Internal or external pull-up resistor is enabled for the input pin to ensure proper signal detection. (PlatformIO's INPUT_PULLUP mode can be used for this purpose.)
+
+3. LEDs:
+   
+Pin Connections: Each LED is connected to a separate digital output pin on the VSD Squadron Mini board.
+ LED 1: Connected to pin PD1 ;
+ LED 2: Connected to pin PD2 ;
+ LED 3: Connected to pin PD3 . 
+
+Working Pattern:
+
+- 1st pressed button: change into LED pattern 1: Walking LEDs.
+- 2nd pressed button: change into LED pattern 2: Red 100ms - Yellow 100ms - Green 1 second.
+- 3th pressed button: change into LED pattern 3: Traffic LEDs.
+- 4th pressed button: change into LED pattern 4: Green 1 second - yellow 100ms - red 100ms.
+- 5th pressed button: change into LED pattern 5: three times each LEDs blink in an order.
+- 6th pressed button gives random blink of random selected LEDs in random duration and delay.
+
 
 Circuit Connections:
+![WhatsApp Image 2024-06-11 at 3 49 40 PM](https://github.com/nandhini-palanimuthu/VSDSquadron-Mini-Internship/assets/170846569/03b95721-d581-468d-947a-982df435a788)
 
-![WhatsApp Image 2024-06-04 at 12 39 27 PM (1)](https://github.com/nandhini-palanimuthu/VSDSquadron-Mini-Internship/assets/170846569/b8d6502b-dae4-4041-ad94-080c8030a370)
 
 
 
 Pin Connections:
 
-#### Power Supply
-
-VSDSquadron Mini
-----------------
-VCC  --> VCC (3.3V or 5V)
-GND  --> GND
-
-
-#### UART Connections
-
-VSDSquadron Mini         UART-to-USB Converter
-----------------         ---------------------
-PD5 (TX)   ---------->   RX (Receive)
-PD6 (RX)  <----------    TX (Transmit)
-
-
-#### LED Connections
-
-VSDSquadron Mini
-----------------
-PD0  --> 220Ω Resistor --> Anode of LED1
-                       --> Cathode of LED1 --> GND
-PD1  --> 220Ω Resistor --> Anode of LED2
-                       --> Cathode of LED2 --> GND
-PD2  --> 220Ω Resistor --> Anode of LED3
-                       --> Cathode of LED3 --> GND
-PD3  --> 220Ω Resistor --> Anode of LED4
-                       --> Cathode of LED4 --> GND
-
-
-#### Button Connections
-
-VSDSquadron Mini
-----------------
-PD4  --> One terminal of Button1
-      --> 10kΩ Resistor --> GND
-Other terminal of Button1 --> GND
-
-PD7  --> One terminal of Button2
-      --> 10kΩ Resistor --> GND
-Other terminal of Button2 --> GND
-
-
-Circuit Explanation:
-
-1. **Power Supply:**
-     VCC and GND: These pins provide power to the processor. The VCC pin should be connected to a 3.3V or 5V power supply, and the GND pin to ground.
-
-2. **UART Interface:**
-    PD5 (TX): This pin is used to transmit data. It should be connected to the RX (Receive) pin of a UART-to-USB converter.
-    PD6 (RX): This pin is used to receive data. It should be connected to the TX (Transmit) pin of a UART-to-USB converter.
-
-3. **LED Connections:**
-    PD0 - PD3: Each of these GPIO pins is connected to an LED through a 220Ω resistor to limit current. The anode of each LED connects to the resistor, and the cathode connects to ground.
-
-4. **Button Connections:**
-    PD4 and PD7: Each GPIO pin is connected to one terminal of a button. A 10kΩ pull-down resistor is used to connect the same terminal to ground, ensuring the pin reads LOW when the button is not pressed. The other terminal of each button is connected to ground.
-
-Specific Functions:
-
-*Instruction Execution:The RISC processor fetches, decodes, and executes instructions, using its ALU for computations and registers for temporary storage.
-
-*UART Communication:The UART interface handles serial data transmission and reception, allowing the processor to communicate with external devices.
-
-*LED Control:The processor can turn LEDs on or off by setting the corresponding GPIO pins HIGH or LOW.
-
-*Button Input: The processor reads the state of the buttons via GPIO pins, which can be used to trigger specific actions.
-
+     VSD Squadron Mini Board
+     ----------------------
+    |                      |
+    |                      |
+    | PA12  --------> LED1 |----->|----> (R) ---> GND
+    |                      |
+    | PA11  --------> LED2 |----->|----> (R) ---> GND
+    |                      |
+    | PA10  --------> LED3 |----->|----> (R) ---> GND
+    |                      |
+    | PA0   --------> Push
