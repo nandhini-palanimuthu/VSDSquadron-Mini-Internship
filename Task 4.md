@@ -1,4 +1,4 @@
-                                                        PUSH BUTTON PRESS - LED PATTERNS USING VSD SQUADRON MINI RISC-V
+                                                        PUSH BUTTON - LED PATTERNS USING VSD SQUADRON MINI RISC-V
 
 
 Overview:
@@ -48,9 +48,9 @@ Working Pattern:
 
 
 Circuit Connections:
+
+
 ![WhatsApp Image 2024-06-11 at 3 49 40 PM](https://github.com/nandhini-palanimuthu/VSDSquadron-Mini-Internship/assets/170846569/03b95721-d581-468d-947a-982df435a788)
-
-
 
 
 Pin Connections:
